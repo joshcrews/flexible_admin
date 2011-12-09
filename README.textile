@@ -1,0 +1,53 @@
+__gem is underdevelopment, not much to see right now__
+
+h1. Flexible Admin
+
+h3. Reason for being
+
+Flexible Admin is a Rails 3.1 Admin tool to generate an attractive data admin to handle login, data CRUD, search and sort while leaving an easy way to customize the particular needs of an apps custom admin functions.
+
+h4. Flexible Admin uses
+
+# Can-can for managing who can edit what
+# Devise for login
+# Bootstrap for style
+# inherited_resources for rest controllers
+# Database Tables (js) for table searching and sorting
+
+h2. Getting Started
+
+In your Gemfile
+
+<code>gem 'flexible_admin'</code>
+
+run <code>bundle install</code>
+
+run <code>rails generate flexible_admin:install</code>
+
+run <code>rake db:migrate</code> to create admin_users tables
+
+h2. Adding models
+
+run <code>rails generate flexible_admin Post</code> to generate a admin/posts controller, /admin/posts route, and add Posts to the admin navigation
+
+h2. Editing views
+
+h3. Dashboard
+
+You can (and should) edit the /admin view at app/views/admin/index.html
+
+h3. Sidebar
+
+Every view file does or can have a <code>content_for :sidebar</code> block where you can content for the sidebar
+
+h3. Common views
+
+The shared views are in add/views/admin/resources.  Edit these to get system-wide changes.
+
+h3. Custom views
+
+Add the views (index.html, edit.html) based on the pattern app/views/admin/posts/index.html to customize how the posts index looks.  If you need a starting point, copy app/views/admin/resources/index.html.erb to the posts folder and modify from there.
+
+h2. License
+
+This project rocks and uses MIT-LICENSE.
