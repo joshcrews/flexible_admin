@@ -17,6 +17,18 @@ module FlexibleAdmin
     def create_admin_layout_view
       template "admin_layout.html.erb", "app/views/layouts/admin/base.html.erb"
     end
+    
+    def create_bootstrap_stylesheet
+      template "bootstrap.sass", "app/assets/stylesheets/admin/bootstrap.sass"
+    end
+    
+    def make_admin_route
+      route("get '/admin' => 'admin#index'")
+    end
+    
+    def create_admin_controller
+      template "admin_controller.rb", "app/controllers/admin_controller.rb"
+    end
 
     def install
     #   display "Hello, RailsAdmin installer will help you sets things up!", :blue

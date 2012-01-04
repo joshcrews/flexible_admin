@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec"
-  s.add_development_dependency "cucumber-rails"
-  s.add_development_dependency "aruba"
+  s.add_development_dependency "generator_spec"
+  
 end

@@ -1,12 +1,23 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'rspec'
-require 'flexible_admin'
+# Configure Rails Envinronment
+ENV["RAILS_ENV"] = "test"
 
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+require File.expand_path('../dummy/config/environment', __FILE__)
+
+require 'generator_spec/test_case'
+require 'rspec/rails'
+require 'generators/flexible_admin/install_generator'
+
+# require 'database_helpers'
+# require 'generator_helpers'
+
+# ActionMailer::Base.delivery_method = :test
+# ActionMailer::Base.perform_deliveries = true
+# ActionMailer::Base.default_url_options[:host] = "example.com"
+
+Rails.backtrace_cleaner.remove_silencers!
 
 RSpec.configure do |config|
-  
+  require 'rspec/expectations'
+  config.include RSpec::Matchers
+  config.color_enabled = true
 end
