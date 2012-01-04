@@ -6,6 +6,7 @@ require File.expand_path('../dummy/config/environment', __FILE__)
 require 'generator_spec/test_case'
 require 'rspec/rails'
 require 'generators/flexible_admin/install_generator'
+require 'generator_helpers'
 
 # require 'database_helpers'
 # require 'generator_helpers'
