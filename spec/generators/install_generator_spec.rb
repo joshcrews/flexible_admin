@@ -39,7 +39,27 @@ describe 'FlexibleAdmin::InstallGenerator' do
     it "adds an /admin route" do
       assert has_route?("get '/admin' => 'admin#index'")
     end
+    
+    describe "devise AdminUser" do
+      
+      it "adds devise to Gemfile" do
+        assert has_gem?("devise")
+      end
+      
+      it "invokes devise setup" do
+        assert @output.match /generate  devise/ # don't know how to run the devise generator in specs, sorry
+      end
+      
+      it "invokes devise generation of AdminUser" do
+        assert @output.match /generate  devise AdminUser/ # don't know how to run the devise generator in specs, sorry
+        
+      end
+      
+    end
 
+  end
+  
+  context "already has devise" do
   end
 
 end

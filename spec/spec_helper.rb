@@ -7,6 +7,7 @@ require 'generator_spec/test_case'
 require 'rspec/rails'
 require 'generators/flexible_admin/install_generator'
 require 'generator_helpers'
+require 'pry'
 
 # require 'database_helpers'
 # require 'generator_helpers'

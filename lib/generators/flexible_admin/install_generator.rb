@@ -29,6 +29,23 @@ module FlexibleAdmin
     def create_admin_controller
       template "admin_controller.rb", "app/controllers/admin_controller.rb"
     end
+    
+    def devise
+      unless defined?(Devise)
+        say "Adding devise gem to your Gemfile:"
+        append_file "Gemfile", "\n", :force => true
+        gem 'devise'
+      end
+      
+      unless File.exists?(Rails.root.join("config/initializers/devise.rb"))
+        say "Installing devise"
+        generate "devise:install"
+      end
+      
+      generate "devise AdminUser"
+      
+      say "you now need to run 'rake db:migrate' to create the admin_users table"
+    end
 
     def install
     #   display "Hello, RailsAdmin installer will help you sets things up!", :blue
