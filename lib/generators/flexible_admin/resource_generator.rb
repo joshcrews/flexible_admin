@@ -65,7 +65,7 @@ module FlexibleAdmin
       end
       
       def upper_case_resources_name
-        resources_name.classify
+        resources_name.classify.pluralize
       end
       
       def has_admin_route_namespace?
