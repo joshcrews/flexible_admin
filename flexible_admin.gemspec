@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Admin for Rails 3.1 apps"
   s.description = "Designed to handle admin basics and allow easy customization"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.text", "Rakefile", "README.textile"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.1.0"
