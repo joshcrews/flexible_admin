@@ -1,4 +1,10 @@
 Dummy::Application.routes.draw do
+  
+        namespace :admin do
+          resources :posts
+          resources :pages
+        end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -40,7 +46,7 @@ Dummy::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
-  #   namespace :admin do
+  
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products

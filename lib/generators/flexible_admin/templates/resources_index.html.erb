@@ -1,0 +1,25 @@
+<%%= content_for :sidebar do %>
+  <h3>Actions</h3>
+  <ul>
+    <li></li>
+  </ul>
+<%% end %>
+
+<h2><%= model_name.pluralize.humanize %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%% @<%= resources_name %>.each do |<%= singular_name %>| %>
+      <tr>
+      </tr>
+    <%% end %>
+  </tbody>
+  <tfoot>
+
+  </tfoot>
+</table>

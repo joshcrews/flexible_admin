@@ -1,7 +1,0 @@
-h2. Feature roadmap
-
-Generates /admin route
-adds bootstrap css
-adds admin user with devise
-manages admin users
-generates area for each model with y/n questions
