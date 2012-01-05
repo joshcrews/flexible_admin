@@ -30,6 +30,10 @@ module FlexibleAdmin
       template "admin_controller.rb", "app/controllers/admin_controller.rb"
     end
     
+    def inherited_resources
+      gem 'inherited_resources'
+    end
+    
     def devise
       unless defined?(Devise)
         say "Adding devise gem to your Gemfile:"
