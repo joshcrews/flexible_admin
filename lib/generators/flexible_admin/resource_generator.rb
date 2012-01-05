@@ -10,20 +10,7 @@ module FlexibleAdmin
     argument :model_name, :type => :string, :required => true, :desc => "Model name for admin section generation"
 
     desc "flexible_admin resource generator"
-    
-    # def create_admin_view
-    #   template "admin_index.html.erb", "app/views/admin/index.html.erb"
-    # end
-    # 
-    # def create_admin_layout_view
-    #   template "admin_layout.html.erb", "app/views/layouts/admin/base.html.erb"
-    # end
-    # 
-    # def create_bootstrap_stylesheet
-    #   template "bootstrap.sass", "app/assets/stylesheets/admin/bootstrap.sass"
-    # end
-    # 
-    
+        
     def creates_index_view
       template "resources_index.html.erb", "app/views/admin/#{resources_name}/index.html.erb"
     end

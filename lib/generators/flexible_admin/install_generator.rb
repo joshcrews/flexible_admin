@@ -16,6 +16,12 @@ module FlexibleAdmin
     
     def create_admin_layout_view
       template "admin_layout.html.erb", "app/views/layouts/admin/base.html.erb"
+      template "navigation.html.erb", "app/views/layouts/admin/navigation.html.erb"
+      template "flash.html.erb", "app/views/layouts/admin/flash.html.erb"
+    end
+    
+    def create_admin_helper
+      template "admin_helper.rb", "app/helpers/admin_helper.rb"
     end
     
     def create_stylesheets

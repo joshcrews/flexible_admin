@@ -1,0 +1,9 @@
+<%% if flash.present? %>
+	<div id="flash" class="clearfix">
+	  <%% flash.each do |key, value| -%>
+  	  <div class="alert-message <%%= key %>" data-alert="alert">
+        <p><%%= value %></p>
+      </div>
+	  <%% end -%>
+	</div>
+<%% end %>
