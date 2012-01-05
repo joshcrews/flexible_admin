@@ -16,3 +16,5 @@ pkg
 
 *.DS_Store
 .rvmrc
+
+spec/generators/tmp/dummy/*

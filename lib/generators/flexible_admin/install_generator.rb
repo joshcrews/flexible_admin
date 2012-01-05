@@ -18,10 +18,11 @@ module FlexibleAdmin
       template "admin_layout.html.erb", "app/views/layouts/admin/base.html.erb"
     end
     
-    def create_bootstrap_stylesheet
+    def create_stylesheets
       template "bootstrap.sass", "app/assets/stylesheets/admin/bootstrap.sass"
+      template "application.css", "app/assets/stylesheets/admin/application.css"
     end
-    
+        
     def make_admin_route
       route("get '/admin' => 'admin#index'")
     end

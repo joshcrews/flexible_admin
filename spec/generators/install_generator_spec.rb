@@ -36,6 +36,14 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/views/layouts/admin/base.html.erb'
     end
     
+    it "creates an admin css file" do
+      assert_file 'app/assets/stylesheets/admin/application.css'
+    end
+    
+    it "copies bootstrap in sass" do
+      assert_file 'app/assets/stylesheets/admin/bootstrap.sass'
+    end
+    
     it "adds an /admin route" do
       assert has_route?("get '/admin' => 'admin#index'")
     end
