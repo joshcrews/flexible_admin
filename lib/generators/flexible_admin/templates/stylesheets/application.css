@@ -6,3 +6,7 @@
  *= require admin/datatables/demo_table
  *= require admin/bootstrap
 */
+
+div.container-fluid {
+  padding-top: 40px
+}
