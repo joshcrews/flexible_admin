@@ -1,0 +1,10 @@
+<%% label ||= nil %>
+
+<div class="clearfix">
+  <%%= optional_label(f, what, label) %>
+  <div class="input">
+    <div class="input-prepend">
+      <label class="add-on"><%%= f.check_box what %></label>
+    </div>
+  </div>
+</div><!-- /clearfix -->

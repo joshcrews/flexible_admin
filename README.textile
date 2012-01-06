@@ -44,13 +44,9 @@ h3. Sidebar
 
 Every view file does or can have a <code>content_for :sidebar</code> block where you can content for the sidebar
 
-h3. Common views
-
-The shared views are in add/views/admin/resources.  Edit these to get system-wide changes.
-
 h3. Custom views
 
-Add the views (index.html, edit.html) based on the pattern app/views/admin/posts/index.html to customize how the posts index looks.  If you need a starting point, copy app/views/admin/resources/index.html.erb to the posts folder and modify from there.
+Basic admin views are generated for each model so that you can directly edit them
 
 h2. Testing
 

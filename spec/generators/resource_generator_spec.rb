@@ -32,15 +32,29 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/controllers/admin/resources_controller.rb'
     end
         
-    it "creates an admin posts view" do
+    it "creates an view files" do
       assert_file 'app/views/admin/posts/index.html.erb'
+      assert_file 'app/views/admin/posts/new.html.erb'
+      assert_file 'app/views/admin/posts/edit.html.erb'
+      assert_file 'app/views/admin/posts/_form.html.erb'
+    end
+        
+    it "creates shared form files" do
+      assert_file 'app/views/admin/shared/_text_field.html.erb'
+      assert_file 'app/views/admin/shared/_text_area_field.html.erb'
+      assert_file 'app/views/admin/shared/_select_field.html.erb'
+      assert_file 'app/views/admin/shared/_file_field.html.erb'
+      assert_file 'app/views/admin/shared/_email_field.html.erb'
+      assert_file 'app/views/admin/shared/_cktext_area_field.html.erb'
+      assert_file 'app/views/admin/shared/_checkbox_field.html.erb'
+      assert_file 'app/views/admin/shared/_error_messages.html.erb'
     end
     
     it "adds an /admin/posts route" do
       assert has_route?("namespace :admin do")
       assert has_route?("resources :posts")
     end
-    
+        
   end
   
   context "runs for posts and pages" do

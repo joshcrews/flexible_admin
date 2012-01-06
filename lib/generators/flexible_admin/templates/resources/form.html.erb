@@ -1,0 +1,11 @@
+<%%= render 'shared/error_messages', :item => <%= instance_variable_resource %> %>
+
+<%%= form_for [:admin, <%= instance_variable_resource %>] do |f| -%>
+  
+  <%%= render 'shared/text_field', :f => f, :what => :name %>
+    
+  <div class="actions">
+    <%%= f.submit "Save", :class => 'btn primary' %>&nbsp;<%%= link_to "Cancel", :back, :class => 'btn' %>
+  </div>
+  
+<%% end -%>

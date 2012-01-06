@@ -1,0 +1,8 @@
+<%% label ||= nil %>
+
+<div class="clearfix">
+  <%%= optional_label(f, what, label) %>
+  <div class="input">
+    <%%= f.select what, collection %>
+  </div>
+</div><!-- /clearfix -->

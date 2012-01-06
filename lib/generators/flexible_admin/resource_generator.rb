@@ -11,8 +11,22 @@ module FlexibleAdmin
 
     desc "flexible_admin resource generator"
         
-    def creates_index_view
-      template "resources_index.html.erb", "app/views/admin/#{resources_name}/index.html.erb"
+    def creates_resource_views
+      template "resources/index.html.erb", "app/views/admin/#{resources_name}/index.html.erb"
+      template "resources/new.html.erb", "app/views/admin/#{resources_name}/new.html.erb"
+      template "resources/edit.html.erb", "app/views/admin/#{resources_name}/edit.html.erb"
+      template "resources/form.html.erb", "app/views/admin/#{resources_name}/_form.html.erb"
+    end
+    
+    def create_shared_form_files
+      template "forms/text_field.html.erb", "app/views/admin/shared/_text_field.html.erb"
+      template "forms/text_area_field.html.erb", "app/views/admin/shared/_text_area_field.html.erb"
+      template "forms/select_field.html.erb", "app/views/admin/shared/_select_field.html.erb"
+      template "forms/file_field.html.erb", "app/views/admin/shared/_file_field.html.erb"
+      template "forms/email_field.html.erb", "app/views/admin/shared/_email_field.html.erb"
+      template "forms/cktext_area_field.html.erb", "app/views/admin/shared/_cktext_area_field.html.erb"
+      template "forms/checkbox_field.html.erb", "app/views/admin/shared/_checkbox_field.html.erb"
+      template "forms/error_messages.html.erb", "app/views/admin/shared/_error_messages.html.erb"
     end
     
     def remove_any_namespace_admin_comments_in_routes
@@ -51,7 +65,15 @@ module FlexibleAdmin
         resources_name.singularize
       end
       
+      def instance_variable_resource
+        "@#{resources_name.singularize}"
+      end
+      
       def upper_case_resources_name
+        upper_case_resource_name.pluralize
+      end
+      
+      def upper_case_resource_name
         resources_name.classify.pluralize
       end
       
