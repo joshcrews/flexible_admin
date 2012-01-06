@@ -56,6 +56,10 @@ module FlexibleAdmin
     
     
     private
+        
+      def model
+        singular_name.classify.constantize
+      end
     
       def resources_name
         model_name.tableize
@@ -76,6 +80,32 @@ module FlexibleAdmin
       def upper_case_resource_name
         resources_name.classify.pluralize
       end
+      
+      def columns_for(model)
+        rejections = %w( ^id$ _type$ type created_at created_on updated_at updated_on deleted_at reset_password_token reset_password_sent_at sign_in _content_type file_size).join("|")
+        model.columns.reject { |f| f.name.match(rejections) }
+      end
+      
+      def render_form_fields(model)
+        columns_for(model).collect do |column|
+          if column.type == :string && column.name =~ /_file_name/
+            column_name = column.name.split("_file_name").first
+            "<%= render 'admin/shared/file_field', :f => f, :what => :#{column_name} %>"
+          elsif column.type == :string && column.name =~ /encrypted_password/
+            "<%= render 'admin/shared/text_field', :f => f, :what => :password %>"
+          elsif column.type == :string && column.name =~ /email/
+            "<%= render 'admin/shared/email_field', :f => f, :what => :#{column.name} %>"
+          elsif column.type == :boolean
+            "<%= render 'admin/shared/checkbox_field', :f => f, :what => :#{column.name} %>"
+          elsif column.type == :text
+            "<%= render 'admin/shared/text_area_field', :f => f, :what => :#{column.name} %>"
+          else
+            "<%= render 'admin/shared/text_field', :f => f, :what => :#{column.name} %>"
+          end
+        end.join("\n")
+
+      end
+      
       
       def has_admin_route_namespace?
         File.open(File.join(destination_root, 'config', 'routes.rb')).read.index("namespace :admin do")

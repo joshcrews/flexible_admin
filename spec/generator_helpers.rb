@@ -8,4 +8,8 @@ module GeneratorHelpers
     File.open(File.join(destination_root, 'Gemfile')).read.index(name)
   end
   
+  def dummy_app_file(file_name)
+    File.open(File.join(destination_root, file_name))
+  end
+  
 end

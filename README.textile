@@ -12,7 +12,6 @@ Flexible admin generates controller and view files for every model that you are 
 
 h4. Flexible Admin uses
 
-# Can-can for managing who can edit what
 # Devise for login
 # Bootstrap for style
 # inherited_resources for rest controllers
@@ -50,7 +49,13 @@ Basic admin views are generated for each model so that you can directly edit the
 
 h2. Testing
 
+h3. Gem tests
+
 Flexible Admin as a gem is tested with rspec.  The specs cover that the generator generates the right files.  It does not test that you can actually admin in anything after the generator runs.
+
+h4. Working with the tests gotchas
+
+The generator specs really on a dummy Rails app in the spec/dummy folder.  That dummy app has some models, a schema, and a db/test.sqlite3 that matter for the tests.  You might have to dig into those if you are having problems modding the specs.  One of the generators reads the models and the database columns to generate the admin forms, and so the dummy app has those files to test off it.
 
 h3. Generates cucumber features
 
