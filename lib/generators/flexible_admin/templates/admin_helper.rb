@@ -35,7 +35,7 @@ module AdminHelper
   private
   
     def toggle_admin_path(resource, field)
-      url_for(:controller => "admin/#{resources_name}", :action => "toggle", :id => resource.id, :field => field)
+      url_for(:controller => "admin/#{resource.class.name.pluralize.downcase}", :action => "toggle", :id => resource.id, :field => field)
     end
   
 end
