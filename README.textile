@@ -6,6 +6,10 @@ h3. Reason for being
 
 Flexible Admin is a Rails 3.1 Admin tool to generate an attractive data admin to handle login, data CRUD, search and sort while leaving an easy way to customize the particular needs of an apps custom admin functions.
 
+h4. Distinctions from other Rails admin gems
+
+Flexible admin generates controller and view files for every model that you are managing, then invites you to get your hands dirty for the customizations of the admin
+
 h4. Flexible Admin uses
 
 # Can-can for managing who can edit what
@@ -47,6 +51,14 @@ The shared views are in add/views/admin/resources.  Edit these to get system-wid
 h3. Custom views
 
 Add the views (index.html, edit.html) based on the pattern app/views/admin/posts/index.html to customize how the posts index looks.  If you need a starting point, copy app/views/admin/resources/index.html.erb to the posts folder and modify from there.
+
+h2. Testing
+
+Flexible Admin as a gem is tested with rspec.  The specs cover that the generator generates the right files.  It does not test that you can actually admin in anything after the generator runs.
+
+h3. Generates cucumber features
+
+Flexible Admin generates cucumber features for your app that can test that the app really does do the basic admin functions.
 
 h2. License
 
