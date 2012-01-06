@@ -36,20 +36,25 @@ module FlexibleAdmin
     
     def make_routes
       if has_admin_route_namespace?
-        routing_code = "resources :#{resources_name}"
+        routing_code = "
+      resources :#{resources_name}, :except => :show do
+        member do
+          get 'toggle'
+        end
+      end"
         sentinel = /namespace :admin do$/
         in_root do
           inject_into_file 'config/routes.rb', "\n          #{routing_code}", { :after => sentinel, :verbose => true }
         end
       else
         route_info = "
-      namespace :admin do
-        resources :#{resources_name} do
-          member do
-            get 'toggle'
-          end
+    namespace :admin do
+      resources :#{resources_name}, :except => :show do
+        member do
+          get 'toggle'
         end
-      end"
+      end
+    end"
         route(route_info)
       end
     end
