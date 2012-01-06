@@ -39,9 +39,16 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
       assert_file 'app/views/admin/posts/_form.html.erb'
     end
     
-    it "customizes the form for your models columns" do
+    it "customizes the form for your model's columns" do
       dummy_app_file('app/views/admin/posts/_form.html.erb').read.index("<%= render 'admin/shared/text_field', :f => f, :what => :title %>").should be_true
-      dummy_app_file('app/views/admin/posts/_form.html.erb').read.index("<%= render 'admin/shared/text_area_field', :f => f, :what => :body %>").should be_true
+    end
+    
+    it "customizes the index table column headers" do
+      dummy_app_file('app/views/admin/posts/index.html.erb').read.index("<th>Title</th>").should be_true
+    end
+    
+    it "customizes the index table for your model's columns" do
+      dummy_app_file('app/views/admin/posts/index.html.erb').read.index("<td><%= link_to post.title, edit_admin_post_path(post) %></td>").should be_true
     end
         
     it "creates shared form files" do
@@ -112,6 +119,22 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
       [:id, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at , :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at, :profile_pic_content_type].each do |column|
         dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("#{column}").should be_nil
       end      
+    end
+    
+    it "customizes the index table column headers" do
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<th>Name</th>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<th>Email</th>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<th>Active</th>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<th>Created At</th>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<th>Profile Pic</th>").should be_true
+    end
+    
+    it "customizes the index table for your model's columns" do
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= link_to speaker.name, edit_admin_speaker_path(speaker) %></td>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= speaker.email %></td>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= toggle(speaker, :active) %></td>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= speaker.created_at.strftime(\"%F\") %></td>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= speaker.profile_pic.url, :width => 24, :height => 24) %></td>").should be_true
     end
                 
   end

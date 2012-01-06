@@ -8,4 +8,18 @@ module AdminHelper
     all_variables.include?(:help)
   end
   
+  def toggle(resource, attribute)
+    if resource.send(attribute)
+      link_to "True", toggle_admin_path(resource, attribute)
+    else
+      link_to "False", toggle_admin_path(resource, attribute)
+    end
+  end
+  
+  private
+  
+    def toggle_admin_path(resource, field)
+      url_for(:controller => "admin/#{resource.class.tableize}", :action => "toggle", :id => resource.id, :field => field)
+    end
+  
 end

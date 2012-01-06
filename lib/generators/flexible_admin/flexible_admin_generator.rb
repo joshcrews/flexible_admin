@@ -82,9 +82,63 @@ module FlexibleAdmin
         resources_name.classify.pluralize
       end
       
+      def table_column_headers
+        model_title = ["<th>#{model_title(model)}</th>"]
+        other_columns = table_column_names_for(model).collect{|column_name| "<th>#{column_name.titleize}</th>" }
+        (model_title + other_columns).join("\n      ")
+      end
+      
+      def model_title(model)
+        attributes = model.column_names
+        if attributes.include?("title")
+          "Title"
+        elsif attributes.include?("name")
+          "Name"
+        else
+          "#{model.name} ID"
+        end
+      end
+      
+      def table_rows
+        model_title_value = "<td><%= link_to #{model_title_value(model)}, edit_admin_#{singular_name}_path(#{singular_name}) %></td>"
+        other_columns = table_columns_for(model).collect do |column| 
+          if column.name =~ /_file_name/
+            column_name = column.name.split("_file_name").first
+            "<td><%= #{singular_name}.#{column_name}.url, :width => 24, :height => 24) %></td>"
+          elsif column.type == :datetime
+            "<td><%= #{singular_name}.#{column.name}.strftime(\"%F\") %></td>"
+          elsif column.type == :boolean
+            "<td><%= toggle(#{singular_name}, :#{column.name}) %></td>"
+          else
+            "<td><%= #{singular_name}.#{column.name} %></td>"
+          end
+        end
+        ([model_title_value] + other_columns).join("\n      ")
+      end
+      
+      def model_title_value(model)
+        attributes = model.column_names
+        if attributes.include?("title")
+          "#{singular_name}.title"
+        elsif attributes.include?("name")
+          "#{singular_name}.name"
+        else
+          "#{singular_name}.id"
+        end
+      end
+      
       def columns_for(model)
         rejections = %w( ^id$ _type$ type created_at created_on updated_at updated_on deleted_at reset_password_token reset_password_sent_at sign_in _content_type file_size).join("|")
         model.columns.reject { |f| f.name.match(rejections) }
+      end
+            
+      def table_columns_for(model)
+        rejections = %w( ^id$ _type$ type password remember ^name$ ^title$ created_on updated_at updated_on deleted_at reset_password_token reset_password_sent_at sign_in _content_type file_size).join("|")
+        desired_columns = model.columns.reject { |f| f.name.match(rejections) }
+      end
+      
+      def table_column_names_for(model)
+        table_columns_for(model).collect { |c| c.name =~ /_file_name/ ? c.name.split("_file_name").first : c.name }
       end
       
       def render_form_fields(model)

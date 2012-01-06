@@ -10,12 +10,13 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+      <%= table_column_headers %>
     </tr>
   </thead>
   <tbody>
     <%% @<%= resources_name %>.each do |<%= singular_name %>| %>
       <tr>
+        <%= table_rows %>
       </tr>
     <%% end %>
   </tbody>
