@@ -16,8 +16,8 @@ module FlexibleAdmin
     
     def create_admin_layout_view
       template "admin_layout.html.erb", "app/views/layouts/admin/base.html.erb"
-      template "navigation.html.erb", "app/views/layouts/admin/navigation.html.erb"
-      template "flash.html.erb", "app/views/layouts/admin/flash.html.erb"
+      template "navigation.html.erb", "app/views/layouts/admin/_navigation.html.erb"
+      template "flash.html.erb", "app/views/layouts/admin/_flash.html.erb"
     end
     
     def create_admin_helper
@@ -73,7 +73,9 @@ module FlexibleAdmin
         generate "devise:install"
       end
       
-      generate "devise AdminUser"
+      unless File.exists?(Rails.root.join("app/models/admin_user.rb"))
+        generate "devise AdminUser"
+      end
       
       say "you now need to run 'rake db:migrate' to create the admin_users table"
     end

@@ -1,5 +1,21 @@
 module AdminHelper
   
+  def optional_label(form, field, label, cssclass = nil)
+    if label.present?
+      if cssclass.present?
+        form.label field, label, :class => cssclass
+      else
+        form.label field, label
+      end
+    else
+      if cssclass.present?
+        form.label field, label, :class => cssclass
+      else
+        form.label field
+      end
+    end
+  end
+  
   def admin_nav_item(item)
     content_tag(:li, link_to(item.humanize.titlecase, Rails.application.routes.url_helpers.send("admin_#{item}_path")), :class => active_if(controller_name == item)) if can?(:read, item.classify.constantize)
   end
@@ -19,7 +35,7 @@ module AdminHelper
   private
   
     def toggle_admin_path(resource, field)
-      url_for(:controller => "admin/#{resource.class.tableize}", :action => "toggle", :id => resource.id, :field => field)
+      url_for(:controller => "admin/#{resources_name}", :action => "toggle", :id => resource.id, :field => field)
     end
   
 end

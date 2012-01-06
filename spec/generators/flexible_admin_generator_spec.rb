@@ -65,6 +65,8 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
     it "adds an /admin/posts route" do
       assert has_route?("namespace :admin do")
       assert has_route?("resources :posts")
+      assert has_route?("resources :posts")
+      assert has_route?("get 'toggle'")
     end
         
   end

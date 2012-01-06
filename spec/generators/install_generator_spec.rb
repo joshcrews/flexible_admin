@@ -41,11 +41,11 @@ describe 'FlexibleAdmin::InstallGenerator' do
     end
     
     it "creates an admin view navigation" do
-      assert_file 'app/views/layouts/admin/navigation.html.erb'
+      assert_file 'app/views/layouts/admin/_navigation.html.erb'
     end
     
     it "creates an admin view flash" do
-      assert_file 'app/views/layouts/admin/flash.html.erb'
+      assert_file 'app/views/layouts/admin/_flash.html.erb'
     end
     
     it "creates an admin css files" do

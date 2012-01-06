@@ -43,9 +43,13 @@ module FlexibleAdmin
         end
       else
         route_info = "
-        namespace :admin do
-          resources :#{resources_name}
-        end"
+      namespace :admin do
+        resources :#{resources_name} do
+          member do
+            get 'toggle'
+          end
+        end
+      end"
         route(route_info)
       end
     end
