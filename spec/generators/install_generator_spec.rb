@@ -48,12 +48,32 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/views/layouts/admin/flash.html.erb'
     end
     
-    it "creates an admin css file" do
+    it "creates an admin css files" do
       assert_file 'app/assets/stylesheets/admin/application.css'
+      assert_file 'app/assets/stylesheets/admin/bootstrap.sass'
+      assert_file 'app/assets/stylesheets/admin/datatables/demo_table.css'
+    end
+    
+    it "creates datatables images" do
+      assert_file 'app/assets/images/admin/datatables/back_disabled.jpg'
+      assert_file 'app/assets/images/admin/datatables/back_enabled.jpg'
+      assert_file 'app/assets/images/admin/datatables/forward_disabled.jpg'
+      assert_file 'app/assets/images/admin/datatables/forward_enabled.jpg'      
+      assert_file 'app/assets/images/admin/datatables/sort_asc.png'
+      assert_file 'app/assets/images/admin/datatables/sort_desc.png'
+      assert_file 'app/assets/images/admin/datatables/sort_both.png'
+      assert_file 'app/assets/images/admin/datatables/sort_asc_disabled.png'
+      assert_file 'app/assets/images/admin/datatables/sort_desc_disabled.png'
     end
     
     it "copies bootstrap in sass" do
       assert_file 'app/assets/stylesheets/admin/bootstrap.sass'
+    end
+    
+    it "creates admin javascript files" do
+      assert_file 'app/assets/javascripts/admin/application.js'
+      assert_file 'app/assets/javascripts/admin/app.js'
+      assert_file 'app/assets/javascripts/admin/jquery.dataTables.js'
     end
     
     it "adds an /admin route" do

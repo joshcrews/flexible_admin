@@ -25,8 +25,28 @@ module FlexibleAdmin
     end
     
     def create_stylesheets
-      template "bootstrap.sass", "app/assets/stylesheets/admin/bootstrap.sass"
-      template "application.css", "app/assets/stylesheets/admin/application.css"
+      template "stylesheets/bootstrap.sass", "app/assets/stylesheets/admin/bootstrap.sass"
+      template "stylesheets/application.css", "app/assets/stylesheets/admin/application.css"
+      template "stylesheets/demo_table.css", "app/assets/stylesheets/admin/datatables/demo_table.css"
+    end
+    
+    def creates_datatables_images
+      template "images/back_disabled.jpg", "app/assets/images/admin/datatables/back_disabled.jpg"
+      template "images/back_enabled.jpg", "app/assets/images/admin/datatables/back_enabled.jpg"
+      template "images/forward_disabled.jpg", "app/assets/images/admin/datatables/forward_disabled.jpg"
+      template "images/forward_enabled.jpg", "app/assets/images/admin/datatables/forward_enabled.jpg"
+      
+      template "images/sort_asc.png", "app/assets/images/admin/datatables/sort_asc.png"
+      template "images/sort_desc.png", "app/assets/images/admin/datatables/sort_desc.png"
+      template "images/sort_both.png", "app/assets/images/admin/datatables/sort_both.png"
+      template "images/sort_asc_disabled.png", "app/assets/images/admin/datatables/sort_asc_disabled.png"
+      template "images/sort_desc_disabled.png", "app/assets/images/admin/datatables/sort_desc_disabled.png"
+    end
+    
+    def creates_javascripts
+      template "javascripts/application.js", "app/assets/javascripts/admin/application.js"
+      template "javascripts/app.js", "app/assets/javascripts/admin/app.js"
+      template "javascripts/jquery.dataTables.js", "app/assets/javascripts/admin/jquery.dataTables.js"
     end
         
     def make_admin_route

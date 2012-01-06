@@ -10,6 +10,10 @@ describe "admin_layout.html.erb" do
     File.open(@file).read.index("<%%= stylesheet_link_tag 'admin/application' %>").should be_true
   end
   
+  it "should reference admin js" do
+    File.open(@file).read.index("<%%= javascript_include_tag 'admin/application' %>").should be_true
+  end
+  
   it "should reference navigation partial" do
     File.open(@file).read.index("<%%= render 'layouts/admin/navigation' %>").should be_true
   end
