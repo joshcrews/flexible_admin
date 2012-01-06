@@ -5,7 +5,8 @@ require 'rails/generators'
 # keep generator idempotent, thanks
 
 module FlexibleAdmin
-  class ResourceGenerator < Rails::Generators::Base
+  class FlexibleAdminGenerator < Rails::Generators::Base
+    namespace "flexible_admin"
     source_root File.expand_path("../templates", __FILE__)
     argument :model_name, :type => :string, :required => true, :desc => "Model name for admin section generation"
 

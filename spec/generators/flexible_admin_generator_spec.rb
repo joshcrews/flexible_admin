@@ -1,11 +1,11 @@
 require 'spec_helper'
 require 'generator_helpers'
 
-describe 'FlexibleAdmin::InstallGenerator' do
+describe 'FlexibleAdmin::FlexibleAdminGenerator' do
   include GeneratorSpec::TestCase
   include GeneratorHelpers
 
-  tests FlexibleAdmin::ResourceGenerator
+  tests FlexibleAdmin::FlexibleAdminGenerator
   destination ::File.expand_path("../tmp/dummy", __FILE__)
 
   before :all do
@@ -109,7 +109,7 @@ describe 'FlexibleAdmin::InstallGenerator' do
     end
     
     it "doesnt make form fields for unwanted database columns" do
-      [:id, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at , :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at].each do |column|
+      [:id, :reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at , :current_sign_in_ip, :last_sign_in_ip, :created_at, :updated_at, :profile_pic_content_type].each do |column|
         dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("#{column}").should be_nil
       end      
     end
