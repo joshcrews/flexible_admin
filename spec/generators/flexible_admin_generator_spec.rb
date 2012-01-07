@@ -21,6 +21,7 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
     before :all do
       prepare_destination
       FileUtils.cp_r(::File.expand_path("../../dummy", __FILE__), ::File.expand_path('../', Pathname.new(destination_root))) # copying dummy_app to test directory
+      copy_over_admin_navigation_that_install_generator_would_put_in
       @output = run_generator ['Post']
     end
 
@@ -68,13 +69,27 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
       assert has_route?("resources :posts")
       assert has_route?("get 'toggle'")
     end
-        
+    
+  end
+  
+  context "Post model, running the install generator first" do
+    before :all do
+      prepare_destination
+      FileUtils.cp_r(::File.expand_path("../../dummy", __FILE__), ::File.expand_path('../', Pathname.new(destination_root))) # copying dummy_app to test directory
+      copy_over_admin_navigation_that_install_generator_would_put_in
+      @output = run_generator ['Post']
+    end
+    
+    it "adds Posts to the top navigation" do
+      dummy_app_file('app/views/layouts/admin/_navigation.html.erb').read.index("models = %w(posts )").should be_true
+    end
   end
   
   context "runs for posts and pages" do
     before :all do
       prepare_destination
       FileUtils.cp_r(::File.expand_path("../../dummy", __FILE__), ::File.expand_path('../', Pathname.new(destination_root))) # copying dummy_app to test directory
+      copy_over_admin_navigation_that_install_generator_would_put_in
       run_generator ['Page']
       @output = run_generator ['Post']
     end
@@ -98,12 +113,18 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
       assert has_route?("resources :posts")
       assert has_route?("resources :pages")
     end
+    
+    it "adds Posts to the top navigation" do
+      dummy_app_file('app/views/layouts/admin/_navigation.html.erb').read.index("models = %w(posts pages )").should be_true
+    end
+    
   end
   
   context "when Speaker model with all kinds of columns" do
     before :all do
       prepare_destination
       FileUtils.cp_r(::File.expand_path("../../dummy", __FILE__), ::File.expand_path('../', Pathname.new(destination_root))) # copying dummy_app to test directory
+      copy_over_admin_navigation_that_install_generator_would_put_in
       @output = run_generator ['Speaker']
     end
     

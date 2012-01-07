@@ -1,10 +1,12 @@
+<%% models = %w() %>
+
 <div class="topbar-wrapper" style="z-index: 5;">
   <div class="topbar" data-dropdown="dropdown" id="navigation">
     <div class="topbar-inner">
       <div class="container">
         <h3><a href="/admin">Home</a></h3>
         <ul class="nav">
-          <%% [].each do |item| %>
+          <%% models.each do |item| %>
             <%%= admin_nav_item(item) %>
           <%% end %>
         </ul>

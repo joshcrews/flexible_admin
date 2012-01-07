@@ -36,15 +36,17 @@ module FlexibleAdmin
     
     def make_routes
       if has_admin_route_namespace?
-        routing_code = "
+        unless has_this_route_already?
+          routing_code = "
       resources :#{resources_name}, :except => :show do
         member do
           get 'toggle'
         end
       end"
-        sentinel = /namespace :admin do$/
-        in_root do
-          inject_into_file 'config/routes.rb', "\n          #{routing_code}", { :after => sentinel, :verbose => true }
+          sentinel = /namespace :admin do$/
+          in_root do
+            inject_into_file 'config/routes.rb', "\n          #{routing_code}", { :after => sentinel, :verbose => true }
+          end
         end
       else
         route_info = "
@@ -64,6 +66,9 @@ module FlexibleAdmin
       template "resources_controller.rb", "app/controllers/admin/#{resources_name}_controller.rb"
     end
     
+    def add_to_navigation_menu
+      gsub_file 'app/views/layouts/admin/_navigation.html.erb', "models = %w(", "models = %w(#{resources_name} "
+    end    
     
     private
         
@@ -174,7 +179,10 @@ module FlexibleAdmin
       def has_admin_route_namespace?
         File.open(File.join(destination_root, 'config', 'routes.rb')).read.index("namespace :admin do")
       end
-
-
+      
+      def has_this_route_already?
+        File.open(File.join(destination_root, 'config', 'routes.rb')).read.index("resources :#{resources_name}")
+      end
+      
   end
 end
