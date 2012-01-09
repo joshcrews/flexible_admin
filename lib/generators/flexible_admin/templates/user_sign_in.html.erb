@@ -1,9 +1,9 @@
 <h2>Sign in</h2>
 <%%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-  <%%= render 'shared/email_field', :f => f, :what => :email %>
+  <%%= render 'admin/shared/email_field', :f => f, :what => :email %>
 
-  <%%= render 'shared/password_field', :f => f, :what => :password %>
+  <%%= render 'admin/shared/password_field', :f => f, :what => :password %>
 
   <%% if devise_mapping.rememberable? -%>
     <div class="clearfix">

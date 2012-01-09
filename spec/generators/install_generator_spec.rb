@@ -54,6 +54,17 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/assets/stylesheets/admin/datatables/demo_table.css'
     end
     
+    it "creates shared form files" do
+      assert_file 'app/views/admin/shared/_text_field.html.erb'
+      assert_file 'app/views/admin/shared/_text_area_field.html.erb'
+      assert_file 'app/views/admin/shared/_select_field.html.erb'
+      assert_file 'app/views/admin/shared/_file_field.html.erb'
+      assert_file 'app/views/admin/shared/_email_field.html.erb'
+      assert_file 'app/views/admin/shared/_cktext_area_field.html.erb'
+      assert_file 'app/views/admin/shared/_checkbox_field.html.erb'
+      assert_file 'app/views/admin/shared/_error_messages.html.erb'
+    end
+    
     it "creates datatables images" do
       assert_file 'app/assets/images/admin/datatables/back_disabled.jpg'
       assert_file 'app/assets/images/admin/datatables/back_enabled.jpg'

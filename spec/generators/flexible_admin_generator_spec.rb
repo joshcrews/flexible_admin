@@ -51,17 +51,6 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
     it "customizes the index table for your model's columns" do
       dummy_app_file('app/views/admin/posts/index.html.erb').read.index("<td><%= link_to post.title, edit_admin_post_path(post) %></td>").should be_true
     end
-        
-    it "creates shared form files" do
-      assert_file 'app/views/admin/shared/_text_field.html.erb'
-      assert_file 'app/views/admin/shared/_text_area_field.html.erb'
-      assert_file 'app/views/admin/shared/_select_field.html.erb'
-      assert_file 'app/views/admin/shared/_file_field.html.erb'
-      assert_file 'app/views/admin/shared/_email_field.html.erb'
-      assert_file 'app/views/admin/shared/_cktext_area_field.html.erb'
-      assert_file 'app/views/admin/shared/_checkbox_field.html.erb'
-      assert_file 'app/views/admin/shared/_error_messages.html.erb'
-    end
     
     it "adds an /admin/posts route" do
       assert has_route?("namespace :admin do")

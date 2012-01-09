@@ -20,6 +20,17 @@ module FlexibleAdmin
       template "flash.html.erb", "app/views/layouts/admin/_flash.html.erb"
     end
     
+    def create_shared_form_files
+      template "forms/text_field.html.erb", "app/views/admin/shared/_text_field.html.erb"
+      template "forms/text_area_field.html.erb", "app/views/admin/shared/_text_area_field.html.erb"
+      template "forms/select_field.html.erb", "app/views/admin/shared/_select_field.html.erb"
+      template "forms/file_field.html.erb", "app/views/admin/shared/_file_field.html.erb"
+      template "forms/email_field.html.erb", "app/views/admin/shared/_email_field.html.erb"
+      template "forms/cktext_area_field.html.erb", "app/views/admin/shared/_cktext_area_field.html.erb"
+      template "forms/checkbox_field.html.erb", "app/views/admin/shared/_checkbox_field.html.erb"
+      template "forms/error_messages.html.erb", "app/views/admin/shared/_error_messages.html.erb"
+    end
+    
     def create_admin_helper
       template "admin_helper.rb", "app/helpers/admin_helper.rb"
     end
