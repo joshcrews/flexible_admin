@@ -63,6 +63,7 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/views/admin/shared/_cktext_area_field.html.erb'
       assert_file 'app/views/admin/shared/_checkbox_field.html.erb'
       assert_file 'app/views/admin/shared/_error_messages.html.erb'
+      assert_file 'app/views/admin/shared/_password_field.html.erb'
     end
     
     it "creates datatables images" do

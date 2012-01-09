@@ -29,6 +29,7 @@ module FlexibleAdmin
       template "forms/cktext_area_field.html.erb", "app/views/admin/shared/_cktext_area_field.html.erb"
       template "forms/checkbox_field.html.erb", "app/views/admin/shared/_checkbox_field.html.erb"
       template "forms/error_messages.html.erb", "app/views/admin/shared/_error_messages.html.erb"
+      template "forms/password_field.html.erb", "app/views/admin/shared/_password_field.html.erb"
     end
     
     def create_admin_helper
