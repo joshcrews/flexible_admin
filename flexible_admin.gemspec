@@ -11,14 +11,12 @@ Gem::Specification.new do |s|
   s.email       = ["josh@joshcrews.com"]
   s.homepage    = "http://github.com/joshcrews/flexible_admin"
   s.summary     = "Admin for Rails 3.1 apps"
-  s.description = "Designed to handle admin basics and allow easy customization"
+  s.description = "Designed to generate admin basics and allow customization"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.txt", "Rakefile", "README.textile"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.1.0"
-  s.add_dependency "inherited_resources"
-  s.add_dependency "responders"
   s.add_dependency "devise"
 
   s.add_development_dependency "sqlite3"

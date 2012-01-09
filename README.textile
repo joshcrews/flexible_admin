@@ -1,16 +1,16 @@
-__gem is underdevelopment, not much to see right now__
-
 h1. Flexible Admin
 
 h3. Reason for being
 
-Flexible Admin is a Rails 3.1 Admin tool to generate an attractive data admin to handle login, data CRUD, search and sort while leaving an easy way to customize the particular needs of an apps custom admin functions.
+Flexible Admin is a Rails 3.1 Admin tool to generate an attractive data admin to handle login, data CRUD, search and sort while leaving an easy way to customize the particular needs of an app's custom admin functions.
+
+I have found myself loving other admins for Rails, but many projects need enough admin customization that the value of a engines/magic was offset by the difficulty of customizing.
 
 h4. Distinctions from other Rails admin gems
 
-Flexible admin generates controller and view files for every model that you are managing, then invites you to get your hands dirty for the customizations of the admin
+Flexible admin generates controller and view files for every model that you are managing, then invites you to get your hands dirty for the customizations of the admin.
 
-h4. Flexible Admin uses
+It keeps the amount of generated code down by leveraging these gems/libraries to do the heavy lifting
 
 # Devise for login
 # Bootstrap for style
@@ -33,19 +33,18 @@ h2. Adding models
 
 run <code>rails generate flexible_admin Post</code> to generate a admin/posts controller, /admin/posts route, and add Posts to the admin navigation
 
-h2. Editing views
+h2. Editing views and controllers
+
+Edit views directly in the app/views/admin, app/views/layouts/admin and app/views/controllers/admin
 
 h3. Dashboard
 
-You can (and should) edit the /admin view at app/views/admin/index.html
+You can (and should) edit the /admin view at app/views/admin/index.html.  It starts out blank.
 
 h3. Sidebar
 
 Every view file does or can have a <code>content_for :sidebar</code> block where you can content for the sidebar
 
-h3. Custom views
-
-Basic admin views are generated for each model so that you can directly edit them
 
 h2. Testing
 
@@ -56,10 +55,6 @@ Flexible Admin as a gem is tested with rspec.  The specs cover that the generato
 h4. Working with the tests gotchas
 
 The generator specs really on a dummy Rails app in the spec/dummy folder.  That dummy app has some models, a schema, and a db/test.sqlite3 that matter for the tests.  You might have to dig into those if you are having problems modding the specs.  One of the generators reads the models and the database columns to generate the admin forms, and so the dummy app has those files to test off it.
-
-h3. Generates cucumber features
-
-Flexible Admin generates cucumber features for your app that can test that the app really does do the basic admin functions.
 
 h2. License
 
