@@ -77,7 +77,7 @@ module FlexibleAdmin
         generate "devise AdminUser"
       end
       
-      say "you now need to run 'rake db:migrate' to create the admin_users table"
+      say "you now need to run 'rake db:migrate' to create the admin_users table", :blue
     end
 
   end
