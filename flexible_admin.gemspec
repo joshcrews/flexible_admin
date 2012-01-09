@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["josh@joshcrews.com"]
   s.homepage    = "http://github.com/joshcrews/flexible_admin"
   s.summary     = "Admin for Rails 3.1 apps"
-  s.description = "Designed to generate admin basics and allow customization"
+  s.description = "Rails 3.1 admin generator"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.txt", "Rakefile", "README.textile"]
   s.test_files = Dir["test/**/*"]
