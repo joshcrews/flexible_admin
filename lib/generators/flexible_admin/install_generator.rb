@@ -75,6 +75,7 @@ module FlexibleAdmin
       
       unless File.exists?(Rails.root.join("app/models/admin_user.rb"))
         generate "devise AdminUser"
+        template "user_sign_in.html.erb", "app/views/admin/admin_users/sessions/new.html.erb"
       end
       
       say "you now need to run 'rake db:migrate' to create the admin_users table", :blue

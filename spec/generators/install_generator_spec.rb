@@ -92,7 +92,10 @@ describe 'FlexibleAdmin::InstallGenerator' do
       
       it "invokes devise generation of AdminUser" do
         assert @output.match /generate  devise AdminUser/ # don't know how to run the devise generator in specs, sorry
-        
+      end
+      
+      it "makes a formatted sign in page" do
+        assert_file 'app/views/admin/admin_users/sessions/new.html.erb'
       end
       
     end
