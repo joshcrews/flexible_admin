@@ -98,6 +98,10 @@ describe 'FlexibleAdmin::InstallGenerator' do
         assert_file 'app/views/admin/admin_users/sessions/new.html.erb'
       end
       
+      it "makes a devise session controller for admin users" do
+        assert_file 'app/controller/admin/admin_users/sessions_controller.rb'
+      end
+      
     end
 
   end
