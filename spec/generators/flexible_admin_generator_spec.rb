@@ -151,4 +151,19 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
                 
   end
   
+  context "when PostComment model" do
+    before :all do
+      prepare_destination
+      FileUtils.cp_r(::File.expand_path("../../dummy", __FILE__), ::File.expand_path('../', Pathname.new(destination_root))) # copying dummy_app to test directory
+      copy_over_admin_navigation_that_install_generator_would_put_in
+      @output = run_generator ['PostComment']
+    end
+    
+    it "gives a pretty title on the index page" do
+      dummy_app_file('app/views/admin/post_comments/index.html.erb').read.index("Post Comments").should be_true
+    end
+        
+                
+  end
+  
 end
