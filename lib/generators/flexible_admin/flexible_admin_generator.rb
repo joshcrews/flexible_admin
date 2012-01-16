@@ -111,7 +111,7 @@ module FlexibleAdmin
               "<td><%= link_to #{singular_name}.#{column_name}.original_filename, #{singular_name}.#{column_name}.url %></td>"
             end
           elsif column.type == :datetime
-            "<td><%= #{singular_name}.#{column.name}.strftime(\"%F\") %></td>"
+            "<td><%= #{singular_name}.#{column.name}.strftime(\"%F %T\") %></td>"
           elsif column.type == :boolean
             "<td><%= toggle(#{singular_name}, :#{column.name}) %></td>"
           else
