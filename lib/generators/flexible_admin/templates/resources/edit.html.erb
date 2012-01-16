@@ -1,3 +1,7 @@
+<%%= content_for(:sidebar) do %>
+  <%%= link_to "All <%= upper_case_resources_name %>", admin_<%= resources_name %>_path %>
+<%% end %>
+
 <h1>Edit <%= upper_case_resource_name %></h1>
 
 <%%= render 'form' %>
