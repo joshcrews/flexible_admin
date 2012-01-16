@@ -105,7 +105,11 @@ module FlexibleAdmin
         other_columns = table_columns_for(model).collect do |column| 
           if column.name =~ /_file_name/
             column_name = column.name.split("_file_name").first
-            "<td><%= image_tag(#{singular_name}.#{column_name}.url, :width => 24, :height => 24) %></td>"
+            if is_image?(column_name)
+              "<td><%= image_tag(#{singular_name}.#{column_name}.url, :width => 24, :height => 24) %></td>"
+            else
+              "<td><%= link_to #{singular_name}.#{column_name}.original_filename, #{singular_name}.#{column_name}.url %></td>"
+            end
           elsif column.type == :datetime
             "<td><%= #{singular_name}.#{column.name}.strftime(\"%F\") %></td>"
           elsif column.type == :boolean
@@ -165,6 +169,10 @@ module FlexibleAdmin
       
       def has_admin_route_namespace?
         File.open(File.join(destination_root, 'config', 'routes.rb')).read.index("namespace :admin do")
+      end
+      
+      def is_image?(text)
+        text =~ /(img|image|avatar|pic|logo)/
       end
             
   end
