@@ -70,6 +70,7 @@ module FlexibleAdmin
     end
     
     def inherited_resources
+      append_file "Gemfile", "\n", :force => true
       gem 'inherited_resources'
     end
     
