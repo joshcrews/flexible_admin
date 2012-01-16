@@ -17,6 +17,10 @@ It keeps the amount of generated code down by leveraging these gems/libraries to
 # inherited_resources for rest controllers
 # Database Tables (js) for table searching and sorting
 
+h4. Shortcomings from other Rails admins gems
+
+# Does not natively handle huge amounts of records for viewing.  You would need to implement handling a large number of records for searching/sorting yourself.  (Because Flexible Admin renders every record of a certain model, and then Datatables js presents just 50 at a time that is paginated/filterable/sortable with javascript)
+
 h2. Getting Started
 
 In your Gemfile
@@ -51,6 +55,10 @@ h2. Testing
 h3. Gem tests
 
 Flexible Admin as a gem is tested with rspec.  The specs cover that the generator generates the right files.  It does not test that you can actually admin in anything after the generator runs.
+
+h3. Tests needed
+
+If possible, my dream tests would run the admin generator on a dummy_app, then step into the dummy app and run a new test suite on how that app behaves after the generator has been run.  If anyone knows how to do that get in touch through github, email or the Issues section.
 
 h4. Working with the tests gotchas
 
