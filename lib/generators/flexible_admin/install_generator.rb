@@ -40,6 +40,8 @@ module FlexibleAdmin
       template "stylesheets/bootstrap.sass", "app/assets/stylesheets/admin/bootstrap.sass"
       template "stylesheets/application.css", "app/assets/stylesheets/admin/application.css"
       template "stylesheets/demo_table.css", "app/assets/stylesheets/admin/datatables/demo_table.css"
+      template "stylesheets/admin.sass", "app/assets/stylesheets/admin/admin.sass"
+      template "images/admin-background.png", "app/assets/images/admin/admin-background.png"
     end
     
     def creates_datatables_images

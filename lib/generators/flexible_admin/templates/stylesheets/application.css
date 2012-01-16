@@ -5,8 +5,5 @@
  *= require_self
  *= require admin/datatables/demo_table
  *= require admin/bootstrap
+ *= require admin/admin
 */
-
-div.container-fluid {
-  padding-top: 40px
-}

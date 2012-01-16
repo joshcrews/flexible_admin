@@ -52,6 +52,8 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/assets/stylesheets/admin/application.css'
       assert_file 'app/assets/stylesheets/admin/bootstrap.sass'
       assert_file 'app/assets/stylesheets/admin/datatables/demo_table.css'
+      assert_file 'app/assets/stylesheets/admin/admin.sass'
+      assert_file 'app/assets/images/admin/admin-background.png'
     end
     
     it "creates shared form files" do
@@ -111,7 +113,7 @@ describe 'FlexibleAdmin::InstallGenerator' do
       end
       
       it "makes a devise session controller for admin users" do
-        assert_file 'app/controller/admin/admin_users/sessions_controller.rb'
+        assert_file 'app/controllers/admin/admin_users/sessions_controller.rb'
       end
       
     end
