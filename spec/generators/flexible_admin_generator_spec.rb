@@ -146,7 +146,7 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
       dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= speaker.email %></td>").should be_true
       dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= toggle(speaker, :active) %></td>").should be_true
       dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= speaker.created_at.strftime(\"%F\") %></td>").should be_true
-      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= speaker.profile_pic.url, :width => 24, :height => 24) %></td>").should be_true
+      dummy_app_file('app/views/admin/speakers/index.html.erb').read.index("<td><%= image_tag(speaker.profile_pic.url, :width => 24, :height => 24) %></td>").should be_true
     end
                 
   end

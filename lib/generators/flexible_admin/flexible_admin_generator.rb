@@ -105,7 +105,7 @@ module FlexibleAdmin
         other_columns = table_columns_for(model).collect do |column| 
           if column.name =~ /_file_name/
             column_name = column.name.split("_file_name").first
-            "<td><%= #{singular_name}.#{column_name}.url, :width => 24, :height => 24) %></td>"
+            "<td><%= image_tag(#{singular_name}.#{column_name}.url, :width => 24, :height => 24) %></td>"
           elsif column.type == :datetime
             "<td><%= #{singular_name}.#{column.name}.strftime(\"%F\") %></td>"
           elsif column.type == :boolean
