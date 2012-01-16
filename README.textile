@@ -6,6 +6,19 @@ Flexible Admin is a Rails 3.1 Admin tool to generate an attractive data admin to
 
 I have found myself loving other admins for Rails, but many projects need enough admin customization that the value of a engines/magic was offset by the difficulty of customizing.
 
+h4. Depends On
+
+# Rails 3.1+
+
+h4. Kinda needs
+
+# SQL database
+
+h4. Customized for
+
+# Paperclip file attachments
+# SASS stylesheets
+
 h4. Distinctions from other Rails admin gems
 
 Flexible admin generates controller and view files for every model that you are managing, then invites you to get your hands dirty for the customizations of the admin.
@@ -20,6 +33,7 @@ It keeps the amount of generated code down by leveraging these gems/libraries to
 h4. Shortcomings from other Rails admins gems
 
 # Does not natively handle huge amounts of records for viewing.  You would need to implement handling a large number of records for searching/sorting yourself.  (Because Flexible Admin renders every record of a certain model, and then Datatables js presents just 50 at a time that is paginated/filterable/sortable with javascript)
+# Because this is a generator, not an engine, the resource generator might become less effective (=breaks more) as you admin gets more and more customized.  This is because its replacing/inserting code that may have modified.
 
 h2. Getting Started
 
