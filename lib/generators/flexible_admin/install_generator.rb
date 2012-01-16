@@ -81,6 +81,8 @@ module FlexibleAdmin
         gem 'devise'
       end
       
+      run "bundle install"        
+      
       unless File.exists?(Rails.root.join("config/initializers/devise.rb"))
         say "Installing devise"
         generate "devise:install"
