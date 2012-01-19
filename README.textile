@@ -51,6 +51,12 @@ h2. Adding models
 
 run <code>rails generate flexible_admin Post</code> to generate a admin/posts controller, /admin/posts route, and add Posts to the admin navigation
 
+h2. Adding WYSIWYG editor
+
+run <code>rails generate flexible_admin:ckeditor</code> to install and generate ckeditor.  That will turn all fields named Body and Description into a text editor.  It also supports pictures and file attachments in the body and configures ckeditor to use amazon_s3 to store the pic/uploads.
+
+The pics/attachment uploads for ckeditor depend on paperclip for file uploads.  If you use another file attachment handler, install ckeditor yourself from the gem: https://github.com/galetahub/ckeditor
+
 h2. Editing views and controllers
 
 Edit views directly in the app/views/admin, app/views/layouts/admin and app/views/controllers/admin

@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     flexible_admin (0.0.4)
+      ckeditor (~> 3.7.0.rc2)
       devise
       inherited_resources
       rails (~> 3.1.0)
@@ -40,6 +41,9 @@ GEM
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    ckeditor (3.7.0.rc2)
+      mime-types (~> 1.17.2)
+      orm_adapter (~> 0.0.6)
     coderay (0.9.8)
     devise (1.5.3)
       bcrypt-ruby (~> 3.0)
