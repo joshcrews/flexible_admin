@@ -12,7 +12,7 @@ module FlexibleAdmin
     
     def install_gem
       append_file "Gemfile", "\n", :force => true
-      gem "ckeditor", "~> 3.7.0.rc2"
+      gem "ckeditor", "~> 3.6.3"
       
       inside Rails.root do
         run "bundle install"

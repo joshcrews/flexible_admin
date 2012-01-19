@@ -7,3 +7,9 @@
     <%%= content_tag(:span, help, :class => 'help-block') if help_text_present?(local_variables) %>
   </div>
 </div><!-- /clearfix -->
+
+
+<%% content_for :javascripts do %>
+  <%%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+  <%%= stylesheet_link_tag "/javascripts/ckeditor/contents.css" %>
+<%% end %>
