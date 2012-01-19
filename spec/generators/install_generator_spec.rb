@@ -58,6 +58,7 @@ describe 'FlexibleAdmin::InstallGenerator' do
     
     it "creates shared form files" do
       assert_file 'app/views/admin/shared/_text_field.html.erb'
+      assert_file 'app/views/admin/shared/_datepicker_text_field.html.erb'
       assert_file 'app/views/admin/shared/_text_area_field.html.erb'
       assert_file 'app/views/admin/shared/_select_field.html.erb'
       assert_file 'app/views/admin/shared/_file_field.html.erb'
@@ -88,6 +89,11 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/assets/javascripts/admin/application.js'
       assert_file 'app/assets/javascripts/admin/app.js'
       assert_file 'app/assets/javascripts/admin/jquery.dataTables.js'
+    end
+    
+    it "copies jquery-ui" do
+      assert_file 'app/assets/javascripts/admin/jquery-ui-1.8.17.custom.min.js'
+      assert_file 'app/assets/stylesheets/ui-lightness/jquery-ui-1.8.17.custom.css'
     end
         
     it "adds an /admin route" do

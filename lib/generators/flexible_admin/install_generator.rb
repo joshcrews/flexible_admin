@@ -21,7 +21,8 @@ module FlexibleAdmin
     end
     
     def create_shared_form_files
-      template "forms/text_field.html.erb", "app/views/admin/shared/_text_field.html.erb"
+      template "forms/text_field.html.erb", "app/views/admin/shared/_datepicker_text_field.html.erb"
+      template "forms/datepicker_text_field.html.erb", "app/views/admin/shared/_text_field.html.erb"
       template "forms/text_area_field.html.erb", "app/views/admin/shared/_text_area_field.html.erb"
       template "forms/select_field.html.erb", "app/views/admin/shared/_select_field.html.erb"
       template "forms/file_field.html.erb", "app/views/admin/shared/_file_field.html.erb"
@@ -62,6 +63,11 @@ module FlexibleAdmin
       template "javascripts/app.js", "app/assets/javascripts/admin/app.js"
       template "javascripts/jquery.dataTables.js", "app/assets/javascripts/admin/jquery.dataTables.js"
     end
+    
+    def adds_jquery_datepicker
+      template "javascripts/jquery-ui-1.8.17.custom.min.js", "app/assets/javascripts/admin/jquery-ui-1.8.17.custom.min.js"
+      directory "ui-lightness", "app/assets/stylesheets/ui-lightness"
+    end
         
     def make_admin_route
       route("get '/admin' => 'admin#index'")
@@ -100,6 +106,7 @@ module FlexibleAdmin
       end
       
       say "you now need to run 'rake db:migrate' to create the admin_users table", :blue
+      say "after that make your first admin_user in the console: AdminUser.create!(email: 'your_email@gmail.com', password: 'password')", :blue
     end
 
   end

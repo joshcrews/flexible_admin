@@ -3,7 +3,11 @@
 <div class="clearfix">
   <%%= optional_label(f, what, label) %>
   <div class="input">
-    <%%= f.cktext_area what, :toolbar => 'Easy', :width => 800, :height => 400 %>
+    <%% if defined?(CkEditor) %>
+      <%%= f.cktext_area what, :toolbar => 'Easy', :width => 800, :height => 400 %>
+    <%% else %>
+      <%%= f.text_area what, :class => 'span6', :rows => 10 %>
+    <%% end %>
     <%%= content_tag(:span, help, :class => 'help-block') if help_text_present?(local_variables) %>
   </div>
 </div><!-- /clearfix -->
