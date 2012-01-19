@@ -158,7 +158,11 @@ module FlexibleAdmin
           elsif column.type == :boolean
             "<%= render 'admin/shared/checkbox_field', :f => f, :what => :#{column.name} %>"
           elsif column.type == :text
-            "<%= render 'admin/shared/text_area_field', :f => f, :what => :#{column.name} %>"
+            if column.name =~ /(body|description)/
+              "<%= render 'admin/shared/cktext_area_field', :f => f, :what => :#{column.name} %>"
+            else
+              "<%= render 'admin/shared/text_area_field', :f => f, :what => :#{column.name} %>"
+            end
           else
             "<%= render 'admin/shared/text_field', :f => f, :what => :#{column.name} %>"
           end

@@ -89,7 +89,7 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/assets/javascripts/admin/app.js'
       assert_file 'app/assets/javascripts/admin/jquery.dataTables.js'
     end
-    
+        
     it "adds an /admin route" do
       assert has_route?("get '/admin' => 'admin#index'")
     end

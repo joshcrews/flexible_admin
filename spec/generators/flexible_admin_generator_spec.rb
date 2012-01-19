@@ -103,6 +103,10 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
       assert has_route?("resources :pages")
     end
     
+    it "gives you ckeditor wysiwyg editor for body field" do
+      dummy_app_file('app/views/admin/posts/_form.html.erb').read.index("<%= render 'admin/shared/cktext_area_field', :f => f, :what => :body %>").should be_true
+    end
+    
     it "adds Posts to the top navigation" do
       dummy_app_file('app/views/layouts/admin/_navigation.html.erb').read.index("models = %w(posts pages )").should be_true
     end
@@ -119,7 +123,7 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
     
     it "customizes the form for your models columns" do
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/text_field', :f => f, :what => :name %>").should be_true
-      dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/text_area_field', :f => f, :what => :description %>").should be_true
+      dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/cktext_area_field', :f => f, :what => :description %>").should be_true
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/checkbox_field', :f => f, :what => :active %>").should be_true
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/email_field', :f => f, :what => :email %>").should be_true
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/text_field', :f => f, :what => :password %>").should be_true
