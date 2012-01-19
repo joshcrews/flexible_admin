@@ -27,6 +27,8 @@ describe 'FlexibleAdmin::CkeditorGenerator' do
     
     it "adds ckeditor gem" do
       assert has_gem?("ckeditor")
+      assert has_gem?("paperclip")
+      assert has_gem?("aws-s3")
     end
     
     it "runs ckeditor installer" do

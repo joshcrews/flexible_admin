@@ -13,7 +13,9 @@ module FlexibleAdmin
     def install_gem
       append_file "Gemfile", "\n", :force => true
       gem "ckeditor", "~> 3.6.3"
-      
+      gem "paperclip"
+      gem 'aws-s3', :require => 'aws/s3'
+
       inside Rails.root do
         run "bundle install"
       end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    flexible_admin (0.0.4)
+    flexible_admin (0.1.0)
       ckeditor (~> 3.6.3)
       devise
       inherited_resources
