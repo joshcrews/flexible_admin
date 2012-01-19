@@ -8,6 +8,9 @@ class Ckeditor::AttachmentFile < Ckeditor::Asset
   validates_attachment_presence :data
 	
 	def url_thumb
-	  @url_thumb ||= Ckeditor::Utils.filethumb(filename)
+	  @url_thumb ||= begin
+	    extname = File.extname(filename).gsub(/^\./, '')
+      "/javascripts/ckeditor/filebrowser/images/thumbs/#{extname}.gif"
+	  end
 	end
 end

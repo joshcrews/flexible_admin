@@ -20,7 +20,8 @@ module FlexibleAdmin
     end
     
     def run_generator
-      generate "ckeditor:install --orm=active_record --backend=paperclip"      
+      generate "ckeditor:install"
+      generate "ckeditor:models --orm=active_record --backend=paperclip"      
     end
     
     def set_paperclip_settings_for_s3
