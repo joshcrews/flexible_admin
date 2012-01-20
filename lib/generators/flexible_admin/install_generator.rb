@@ -21,8 +21,8 @@ module FlexibleAdmin
     end
     
     def create_shared_form_files
-      template "forms/text_field.html.erb", "app/views/admin/shared/_datepicker_text_field.html.erb"
-      template "forms/datepicker_text_field.html.erb", "app/views/admin/shared/_text_field.html.erb"
+      template "forms/text_field.html.erb", "app/views/admin/shared/_text_field.html.erb"
+      template "forms/datepicker_text_field.html.erb", "app/views/admin/shared/_datepicker_text_field.html.erb"
       template "forms/text_area_field.html.erb", "app/views/admin/shared/_text_area_field.html.erb"
       template "forms/select_field.html.erb", "app/views/admin/shared/_select_field.html.erb"
       template "forms/file_field.html.erb", "app/views/admin/shared/_file_field.html.erb"

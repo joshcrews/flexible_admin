@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116171815) do
+ActiveRecord::Schema.define(:version => 20120120025349) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120116171815) do
     t.string   "mp3_content_type"
     t.integer  "mp3_file_size"
     t.datetime "mp3_updated_at"
+    t.date     "birthday"
   end
 
   add_index "speakers", ["email"], :name => "index_speakers_on_email", :unique => true

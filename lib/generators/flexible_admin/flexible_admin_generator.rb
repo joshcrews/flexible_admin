@@ -163,6 +163,8 @@ module FlexibleAdmin
             else
               "<%= render 'admin/shared/text_area_field', :f => f, :what => :#{column.name} %>"
             end
+          elsif column.type == :date
+            "<%= render 'admin/shared/datepicker_text_field', :f => f, :what => :#{column.name} %>"
           else
             "<%= render 'admin/shared/text_field', :f => f, :what => :#{column.name} %>"
           end

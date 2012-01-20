@@ -123,6 +123,7 @@ describe 'FlexibleAdmin::FlexibleAdminGenerator' do
     
     it "customizes the form for your models columns" do
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/text_field', :f => f, :what => :name %>").should be_true
+      dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/datepicker_text_field', :f => f, :what => :birthday %>").should be_true
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/cktext_area_field', :f => f, :what => :description %>").should be_true
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/checkbox_field', :f => f, :what => :active %>").should be_true
       dummy_app_file('app/views/admin/speakers/_form.html.erb').read.index("<%= render 'admin/shared/email_field', :f => f, :what => :email %>").should be_true
