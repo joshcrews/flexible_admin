@@ -10,9 +10,9 @@ h4. Depends On
 
 # Rails 3.1+
 
-h4. Kinda needs
+h4. Basically needs
 
-# SQL database
+# SQL database / ActiveRecord.  Most of the cool stuff involves intuiting your admin needs from your sql column names/typues
 
 h4. Customized for
 
@@ -50,6 +50,10 @@ run <code>rake db:migrate</code> to create admin_users tables
 h2. Adding models
 
 run <code>rails generate flexible_admin Post</code> to generate a admin/posts controller, /admin/posts route, and add Posts to the admin navigation
+
+h2. Adding devise (authentication)
+
+run <code>rails generate flexible_admin:devise</code> to generate devise, an admin_user, and require login for the admin.
 
 h2. Adding WYSIWYG editor
 

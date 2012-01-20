@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'generators/flexible_admin/install_generator'
 require 'generators/flexible_admin/flexible_admin_generator'
 require 'generators/flexible_admin/ckeditor_generator'
+require 'generators/flexible_admin/devise_generator'
 require 'generator_helpers'
 require 'pry'
 
