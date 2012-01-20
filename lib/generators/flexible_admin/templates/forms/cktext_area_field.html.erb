@@ -3,7 +3,7 @@
 <div class="clearfix">
   <%%= optional_label(f, what, label) %>
   <div class="input">
-    <%% if defined?(CkEditor) %>
+    <%% if defined?(Ckeditor) %>
       <%%= f.cktext_area what, :toolbar => 'Easy', :width => 800, :height => 400 %>
     <%% else %>
       <%%= f.text_area what, :class => 'span6', :rows => 10 %>
