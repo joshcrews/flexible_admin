@@ -11,12 +11,12 @@ Gem::Specification.new do |s|
   s.email       = ["josh@joshcrews.com"]
   s.homepage    = "http://github.com/joshcrews/flexible_admin"
   s.summary     = "Admin for Rails 3.1 apps"
-  s.description = "Rails 3.1 admin generator"
+  s.description = "Rails 3.1+ admin generator"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE.txt", "Rakefile", "README.textile"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.1.0"
+  s.add_dependency "rails", ">= 3.1.0"
   s.add_dependency "devise"
   s.add_dependency "inherited_resources"
   s.add_dependency "ckeditor", "~> 3.6.3"
