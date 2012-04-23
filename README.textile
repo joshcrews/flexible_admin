@@ -17,7 +17,6 @@ h4. Basically needs
 h4. Customized for
 
 # Paperclip file attachments
-# SASS stylesheets
 
 h4. Distinctions from other Rails admin gems
 

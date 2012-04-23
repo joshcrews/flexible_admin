@@ -38,7 +38,7 @@ module FlexibleAdmin
     end
     
     def create_stylesheets
-      template "stylesheets/bootstrap.sass", "app/assets/stylesheets/admin/bootstrap.sass"
+      template "stylesheets/bootstrap.css", "app/assets/stylesheets/admin/bootstrap.css"
       template "stylesheets/application.css", "app/assets/stylesheets/admin/application.css"
       template "stylesheets/demo_table.css", "app/assets/stylesheets/admin/datatables/demo_table.css"
       template "stylesheets/admin.sass", "app/assets/stylesheets/admin/admin.sass"

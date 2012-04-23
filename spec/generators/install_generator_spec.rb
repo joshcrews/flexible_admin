@@ -50,7 +50,7 @@ describe 'FlexibleAdmin::InstallGenerator' do
     
     it "creates an admin css files" do
       assert_file 'app/assets/stylesheets/admin/application.css'
-      assert_file 'app/assets/stylesheets/admin/bootstrap.sass'
+      assert_file 'app/assets/stylesheets/admin/bootstrap.css'
       assert_file 'app/assets/stylesheets/admin/datatables/demo_table.css'
       assert_file 'app/assets/stylesheets/admin/admin.sass'
       assert_file 'app/assets/images/admin/admin-background.png'
@@ -81,8 +81,8 @@ describe 'FlexibleAdmin::InstallGenerator' do
       assert_file 'app/assets/images/admin/datatables/sort_desc_disabled.png'
     end
     
-    it "copies bootstrap in sass" do
-      assert_file 'app/assets/stylesheets/admin/bootstrap.sass'
+    it "copies bootstrap in css" do
+      assert_file 'app/assets/stylesheets/admin/bootstrap.css'
     end
     
     it "creates admin javascript files" do
