@@ -7,7 +7,7 @@ describe "navigation.html.erb" do
   end
   
   it "should link to admin home" do
-    File.open(@file).read.index("<a href=\"/admin\">").should be_true
+    File.open(@file).read.index("href=\"/admin\"").should be_true
   end
     
 end

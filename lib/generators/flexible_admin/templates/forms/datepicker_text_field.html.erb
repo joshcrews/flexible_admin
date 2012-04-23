@@ -1,22 +1,26 @@
-<%% label ||= nil %>
-
-<div class="clearfix">
-  <%%= optional_label(f, what, label) %>
-  <div class="input">
-    <%%= f.text_field what, :class => 'span6 datepicker' %>
-    <%%= content_tag(:span, help, :class => 'help-block') if help_text_present?(local_variables) %>
-  </div>
-</div><!-- /clearfix -->
-
 <link type="text/css" href="/assets/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
 <script type="text/javascript" src="/assets/admin/jquery-ui-1.8.17.custom.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		// Datepicker
-		$('.datepicker').datepicker({
-			inline: true,
+
+<%% label ||= nil %>
+
+<div class="control-group">
+  <%%= optional_label(f, what, label, 'control-label') %>
+  <div class="controls">
+    <%%= f.text_field what, :class => 'datepicker' %>
+    <%%= content_tag(:p, help, :class => 'help-block') if help_text_present?(local_variables) %>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    // Datepicker
+  	$('.datepicker').datepicker({
+  	  dateFormat: 'yy-mm-dd',
+      showOn: "both",
+      inline: true,
 			changeYear: true,
 			yearRange: '1990:2030'
-		});				
-	});
+    });
+
+  });
 </script>

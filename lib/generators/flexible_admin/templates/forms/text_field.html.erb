@@ -1,9 +1,11 @@
 <%% label ||= nil %>
 
-<div class="clearfix">
-  <%%= optional_label(f, what, label) %>
-  <div class="input">
-    <%%= f.text_field what, :class => 'span6' %>
-    <%%= content_tag(:span, help, :class => 'help-block') if help_text_present?(local_variables) %>
+<div class="control-group">
+  <%%= optional_label(f, what, label, 'control-label') %>
+  <div class="controls">
+    <%%= f.text_field what %>
+    <%% if help_text_present?(local_variables) %>
+      <p class='help-block'><%%= help.html_safe %></p>
+    <%% end %>
   </div>
-</div><!-- /clearfix -->
+</div>

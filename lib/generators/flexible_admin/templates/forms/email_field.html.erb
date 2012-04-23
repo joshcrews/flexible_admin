@@ -1,8 +1,8 @@
 <%% label ||= nil %>
 
-<div class="clearfix">
-  <%%= optional_label(f, what, label) %>
-  <div class="input">
+<div class="control-group">
+  <%%= optional_label(f, what, label, 'control-label') %>
+  <div class="controls">
     <%%= f.email_field what %>
   </div>
-</div><!-- /clearfix -->
+</div>

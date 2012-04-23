@@ -1,6 +1,6 @@
 <%% if item.errors.any? %>
-  <div class="alert-message block-message error">
-    <p><strong>You got an error!</strong></p>
+  <div class="alert alert-block alert-error">
+    <h4 class="alert-heading">You got an error!</h4>
     <ul>
       <%% item.errors.full_messages.each do |msg| %>
         <li><%%= msg %></li>

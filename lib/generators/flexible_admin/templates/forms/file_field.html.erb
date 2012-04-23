@@ -1,8 +1,11 @@
+<%% image_url ||= nil %>
 <%% label ||= nil %>
 
-<div class="clearfix">
-  <%%= optional_label(f, what, label) %>
-  <div class="input">
+<div class="control-group file-field">
+  <%%= optional_label(f, what, label, 'control-label') %>
+  <div class="controls">
     <%%= f.file_field what %>
+    <%%= content_tag(:p, help, :class => 'help-block') if help_text_present?(local_variables) %>
+    <%%= image_tag(image_url) if image_url.present? %> 
   </div>
-</div><!-- /clearfix -->
+</div>
