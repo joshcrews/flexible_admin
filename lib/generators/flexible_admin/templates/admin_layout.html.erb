@@ -20,12 +20,15 @@
   <%%= render 'layouts/admin/navigation' %>
 
   <div class="container-fluid">
-    <div class="sidebar">
-      <%%= yield :sidebar %>
-    </div><!-- .sidebar -->
-    <div class="content">
-      <%%= render 'layouts/admin/flash', :flash => flash %>
-      <%%= yield :layout %>
+    <div class="row-fluid">
+      <div class="span2">
+        <%%= yield :sidebar %>
+        &nbsp;
+      </div>
+      <div class="span10">
+        <%%= render 'layouts/admin/flash', :flash => flash %>
+        <%%= yield :layout %>
+      </div>
     </div>
   </div>
 
