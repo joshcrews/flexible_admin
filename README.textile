@@ -1,3 +1,8 @@
+<code>
+  ABANDONED PROJECT!  I DON'T RECOMMEND YOU USE THIS, AT LEAST MY BRANCH, AS I DON'T MAINTAIN IT.
+</code>
+
+
 h1. Flexible Admin
 
 h3. Reason for being
